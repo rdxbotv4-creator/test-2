@@ -1,0 +1,91 @@
+{
+    "builds": [
+        {
+            "src": "public/**",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "data/**",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "cache/**",
+            "use": "@vercel/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/",
+            "dest": "/public/index.html"
+        },
+        {
+            "src": "/index.html",
+            "dest": "/public/index.html"
+        },
+        {
+            "src": "/admin-login",
+            "dest": "/public/admin-login.html"
+        },
+        {
+            "src": "/admin-dashboard",
+            "dest": "/public/admin-dashboard.html"
+        },
+        {
+            "src": "/portal",
+            "dest": "/public/portal.html"
+        },
+        {
+            "src": "/manifest.json",
+            "dest": "/public/manifest.json"
+        },
+        {
+            "src": "/service-worker.js",
+            "dest": "/public/service-worker.js"
+        },
+        {
+            "src": "/offline.html",
+            "dest": "/public/offline.html"
+        },
+        {
+            "src": "/data/(.*)",
+            "dest": "/data/$1"
+        },
+        {
+            "src": "/cache/(.*)",
+            "dest": "/cache/$1"
+        }
+    ],
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "Service-Worker-Allowed",
+                    "value": "/"
+                },
+                {
+                    "key": "Cache-Control",
+                    "value": "no-cache, no-store, must-revalidate"
+                }
+            ]
+        },
+        {
+            "source": "**/*.js",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/javascript"
+                }
+            ]
+        },
+        {
+            "source": "**/*.json",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                }
+            ]
+        }
+    ]
+}

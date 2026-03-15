@@ -1,0 +1,32 @@
+{
+    "name": "Plaza Steel & Crockery - Rate List",
+    "short_name": "Plaza Rate List",
+    "description": "Premium Quality Products at Best Rates - Plaza Steel & Crockery",
+    "start_url": "./public.html",
+    "display": "standalone",
+    "background_color": "#1a1a2e",
+    "theme_color": "#e94560",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "cache/app icon.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "cache/app icon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": [
+        "shopping",
+        "business"
+    ],
+    "lang": "en",
+    "dir": "ltr",
+    "scope": "./",
+    "prefer_related_applications": false
+}

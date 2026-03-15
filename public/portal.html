@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a2a6c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Plaza Portal | Connect With Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0a0f2a;
+            --accent-gold: #FFD700;
+            --glass-white: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --text-white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            color: var(--text-white);
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: floatParticle 20s infinite linear;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.4;
+            }
+
+            90% {
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 430px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 45px;
+            height: 45px;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 0 30px;
+        }
+
+        .logo-container {
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-gold);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+            animation: spinLogo 10s linear infinite;
+        }
+
+        @keyframes spinLogo {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #fff, var(--accent-gold), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Contact Section */
+        .section-title {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-card {
+            background: var(--glass-white);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: 0.5s;
+        }
+
+        .contact-card:hover::before {
+            left: 100%;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .whatsapp-card {
+            border-color: rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-card:hover {
+            border-color: #25D366;
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .instagram-card {
+            border-color: rgba(228, 64, 95, 0.3);
+        }
+
+        .instagram-card:hover {
+            border-color: #E4405F;
+            box-shadow: 0 15px 30px rgba(228, 64, 95, 0.3);
+        }
+
+        .admin-card {
+            border-color: rgba(0, 176, 255, 0.3);
+        }
+
+        .admin-card:hover {
+            border-color: #00b0ff;
+            box-shadow: 0 15px 30px rgba(0, 176, 255, 0.3);
+        }
+
+        .contact-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+
+        .whatsapp-icon {
+            background: #25D366;
+            color: white;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .instagram-icon {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            box-shadow: 0 0 20px rgba(228, 64, 95, 0.4);
+        }
+
+        .admin-icon {
+            background: linear-gradient(135deg, #0f3460, #00b0ff);
+            color: white;
+            box-shadow: 0 0 20px rgba(0, 176, 255, 0.4);
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--text-white);
+        }
+
+        .contact-desc {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .contact-arrow {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover .contact-arrow {
+            transform: translateX(5px);
+            color: var(--text-white);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 0 20px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.7rem;
+        }
+
+        .footer i {
+            color: var(--accent-gold);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <!-- Back Button -->
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-container">
+                <img src="../cache/logo.png" alt="Plaza Steel & Crockery" class="logo"
+                    onerror="this.style.display='none'">
+            </div>
+            <h1 class="title">Connect With Us</h1>
+            <p class="subtitle">PLAZA STEEL & CROCKERY</p>
+        </header>
+
+        <!-- Contact Section -->
+        <div class="section-title">Get In Touch</div>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/message/AEITVKONJBS3N1" class="contact-card whatsapp-card" target="_blank">
+            <div class="contact-icon whatsapp-icon">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="contact-info">
+                <div class="contact-title">WhatsApp</div>
+                <div class="contact-desc">Click to message us</div>
+            </div>
+            <div class="contact-arrow">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/plaza.steel?igsh=MTVnbDI0d3o2M2hoYw%3D%3D&utm_source=qr"
+            class="contact-card instagram-card" target="_blank">
+            <div class="contact-icon instagram-icon">
+                <i class="fab fa-instagram"></i>
+            </div>
+            <div class="contact-info">
+                <div class="contact-title">Instagram</div>
+                <div class="contact-desc">Follow for updates</div>
+            </div>
+            <div class="contact-arrow">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </a>
+
+        <!-- Admin Portal -->
+        <a href="admin-login.html" class="contact-card admin-card">
+            <div class="contact-icon admin-icon">
+                <i class="fas fa-user-cog"></i>
+            </div>
+            <div class="contact-info">
+                <div class="contact-title">Admin Portal</div>
+                <div class="contact-desc">Manage inventory & reports</div>
+            </div>
+            <div class="contact-arrow">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </a>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p><i class="fas fa-heart"></i> Plaza Steel & Crockery</p>
+            <p>Your Trusted Partner</p>
+        </footer>
+    </div>
+
+    <script>
+        // Create Particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+        });
+    </script>
+</body>
+
+</html>

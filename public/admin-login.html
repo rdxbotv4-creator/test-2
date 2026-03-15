@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a2a6c">
+    <title>Admin Login | Plaza Rate List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0a0f2a;
+            --accent-gold: #FFD700;
+            --glass-white: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --text-white: #ffffff;
+            --danger: #ff1744;
+            --success: #00c853;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .login-container {
+            background: var(--glass-white);
+            backdrop-filter: blur(20px);
+            padding: 40px 30px;
+            border-radius: 25px;
+            width: 100%;
+            max-width: 380px;
+            border: 1px solid var(--glass-border);
+            animation: slideInLeft 0.6s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .login-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-logo i {
+            font-size: 3.5rem;
+            color: var(--accent-gold);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .login-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #fff, var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 16px 18px;
+            border: 2px solid var(--glass-border);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-white);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--accent-gold), #ffaa00);
+            border: none;
+            border-radius: 12px;
+            color: var(--primary-dark);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
+        }
+
+        .login-btn:active {
+            transform: scale(0.98);
+        }
+
+        .login-error {
+            color: var(--danger);
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            display: none;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-10px);
+            }
+
+            75% {
+                transform: translateX(10px);
+            }
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .back-link a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Success Checkmark Animation */
+        .success-check {
+            display: none;
+            text-align: center;
+        }
+
+        .success-check i {
+            font-size: 4rem;
+            color: var(--success);
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .success-text {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: var(--success);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container" id="loginContainer">
+        <div class="login-logo">
+            <i class="fas fa-shield-alt"></i>
+        </div>
+
+        <h2 class="login-title">Admin Portal</h2>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="username" placeholder="Enter username" required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter password" required>
+            </div>
+
+            <button type="submit" class="login-btn">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+
+            <p class="login-error" id="loginError">
+                <i class="fas fa-exclamation-circle"></i> Invalid username or password
+            </p>
+        </form>
+
+        <div class="success-check" id="successCheck">
+            <i class="fas fa-check-circle"></i>
+            <p class="success-text">Login Successful!</p>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html">
+                <i class="fas fa-arrow-left"></i> Back to Public
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Login credentials
+        const CORRECT_USERNAME = 'adminplaza';
+        const CORRECT_PASSWORD = '34402';
+
+        // Session timeout (30 minutes)
+        const SESSION_TIMEOUT = 30 * 60 * 1000;
+
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loginError = document.getElementById('loginError');
+            const loginForm = document.getElementById('loginForm');
+            const successCheck = document.getElementById('successCheck');
+
+            if (username === CORRECT_USERNAME && password === CORRECT_PASSWORD) {
+                // Success
+                loginForm.style.display = 'none';
+                successCheck.style.display = 'block';
+
+                // Set session
+                sessionStorage.setItem('adminSession', Date.now());
+
+                // Redirect after animation
+                setTimeout(() => {
+                    window.location.href = 'admin-dashboard.html';
+                }, 1000);
+            } else {
+                // Error
+                loginError.style.display = 'block';
+
+                // Add shake animation to container
+                const container = document.getElementById('loginContainer');
+                container.style.animation = 'none';
+                container.offsetHeight; // Trigger reflow
+                container.style.animation = 'shake 0.5s ease-in-out';
+
+                // Hide error after 3 seconds
+                setTimeout(() => {
+                    loginError.style.display = 'none';
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+
+</html>

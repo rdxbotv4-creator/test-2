@@ -1,0 +1,57 @@
+[
+    {
+        "id": "unique-001",
+        "Item Description": "COOKER 9LTR WEST POINT",
+        "Cost": 3200,
+        "Price": 4250,
+        "Qty OH": 15,
+        "Status": "online",
+        "category": "cooker",
+        "brand": "west point",
+        "lastUpdated": "2024-01-15"
+    },
+    {
+        "id": "unique-002",
+        "Item Description": "COOKER 7LTR WEST POINT",
+        "Cost": 2800,
+        "Price": 3750,
+        "Qty OH": 8,
+        "Status": "online",
+        "category": "cooker",
+        "brand": "west point",
+        "lastUpdated": "2024-01-15"
+    },
+    {
+        "id": "unique-003",
+        "Item Description": "BATH SET GRACE BEAUTY + DUSTBIN",
+        "Cost": 1300,
+        "Price": 1795,
+        "Qty OH": -13,
+        "Status": "online",
+        "category": "bath",
+        "brand": "grace",
+        "lastUpdated": "2024-01-15"
+    },
+    {
+        "id": "unique-004",
+        "Item Description": "PAN NON STICK 24CM",
+        "Cost": 850,
+        "Price": 1250,
+        "Qty OH": 25,
+        "Status": "online",
+        "category": "pan",
+        "brand": "generic",
+        "lastUpdated": "2024-01-15"
+    },
+    {
+        "id": "unique-005",
+        "Item Description": "HANDI STEEL 5LTR",
+        "Cost": 1200,
+        "Price": 1650,
+        "Qty OH": 0,
+        "Status": "online",
+        "category": "handi",
+        "brand": "generic",
+        "lastUpdated": "2024-01-15"
+    }
+]
