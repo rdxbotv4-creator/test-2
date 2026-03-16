@@ -70,7 +70,7 @@
             ]
         },
         {
-            "source": "**/*.js",
+            "source": "/**/*.js",
             "headers": [
                 {
                     "key": "Content-Type",
@@ -79,7 +79,7 @@
             ]
         },
         {
-            "source": "**/*.json",
+            "source": "/**/*.json",
             "headers": [
                 {
                     "key": "Content-Type",
